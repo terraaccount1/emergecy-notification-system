@@ -1,0 +1,23 @@
+services:
+  postgres-test:
+    image: postgres:latest
+    restart: always
+
+    container_name: postgres-test
+    hostname: postgres
+
+    environment:
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_USER=test
+      - POSTGRES_DB=test
+
+    ports:
+      - "5432:5432"
+
+    networks:
+      - my-network
+
+
+networks:
+  my-network:
+    driver: bridge
